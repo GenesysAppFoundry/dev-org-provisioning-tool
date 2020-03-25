@@ -9,11 +9,11 @@ export default {
         
     },
     //'wizardUriBase': 'http://localhost:3000/wizard/',
-    'wizardUriBase': 'https://jenissabarrera.github.io/devorgProvisioningTool/wizard/',
+    'wizardUriBase': 'https://genesysappfoundry.github.io/dev-org-provisioning-tool/wizard/',
 
     // The actual URL of the landing page of your web app.
     //'premiumAppURL': 'http://localhost:3000/',
-    'premiumAppURL': 'https://jenissabarrera.github.io/devorgProvisioningTool/',
+    'premiumAppURL': 'https://genesysappfoundry.github.io/dev-org-provisioning-tool/',
 
     // PureCloud assigned name for the premium app
     // This should match the integration type name of the Premium App
