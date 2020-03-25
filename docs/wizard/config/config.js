@@ -1,3 +1,5 @@
+import cheatChat from '../../listing-management/partner-side/scripts/cheat-chat.js';
+
 export default {
     clientIDs: {        
         'mypurecloud.com': 'e4163c90-2168-400a-9441-cb2c8ae7ccc2',
@@ -5,8 +7,7 @@ export default {
         'mypurecloud.com.au': 'ae206cd0-a70e-481d-86f4-b1bfb61498de',
         'mypurecloud.jp': '265993a4-931a-44e5-a0b1-80519c3edb25',
         'mypurecloud.de':  '5f25a1d0-7b42-416b-beb3-fa708e7b2e65',
-        'usw2.pure.cloud': '0d09a06e-f09a-47ed-8556-080479596414'
-        
+        'usw2.pure.cloud': '0d09a06e-f09a-47ed-8556-080479596414'  
     },
     //'wizardUriBase': 'http://localhost:3000/wizard/',
     'wizardUriBase': 'https://genesysappfoundry.github.io/dev-org-provisioning-tool/wizard/',
@@ -35,7 +36,7 @@ export default {
     'setupPermissionsRequired': ['admin'],
 
     // To be added to names of PureCloud objects created by the wizard
-    'prefix': 'DEV_ORG_PROVISIONING_TOOL_',
+    'prefix': 'T_DEV_ORG_PROVISIONING_TOOL_',
 
     // These are the PureCloud items that will be added and provisioned by the wizard
     'provisioningInfo': {
@@ -49,6 +50,11 @@ export default {
                         'entityName': 'examplePremiumApp',
                         'actionSet': ['*'],
                         'allowConditions': false
+                    },
+                    {
+                        "domain": "architect",
+                        "entityName": "datatable",
+                        "actionSet": ["*"]
                     }
                 ]
             }
@@ -61,21 +67,17 @@ export default {
             {
                 'name': 'Supervisors',
                 'description': 'Supervisors have the ability to watch a queue for ACD conversations.',
+            },
+            {
+                "name": "Listing Manager",
+                "description": "People that will have acess to the Listing Info Workspce.",
             }
         ],
-//         'app-instance': [
-//             {
-//                 'name': 'Agent Widget',
-//                 'url': 'https://jenissabarrera.github.io/devorgProvisioningTool/index.html?lang={{pcLangTag}}&environment={{pcEnvironment}}',
-//                 'type': 'widget',
-//                 'groups': ['Agents']
-//             }
-//         ],
         'oauth-client': [
             {
                 'name': 'OAuth Client',
                 'description': 'Generated Client that\'s passed to the App Backend',
-                'roles': ['Role'],
+                'roles': ['Listing Manager'],
                 'authorizedGrantType': 'CLIENT_CREDENTIALS',
 
                 /**
@@ -89,12 +91,62 @@ export default {
                  * @returns {Promise}    
                  */
                 'finally': function(installedData){
-                    return new Promise((resolve, reject) => {
-                        console.log('Fake Sending Credentials...');
-                        setTimeout(() => resolve(), 2000);
-                    });
+                    return cheatChat.submitClientCredentials(installedData);
                 }
             }
-        ]
+        ],
+        'data-table': {
+            "name": "Listings",
+            "description": "Contains the details of your app listings.",
+            "referenceKey": "id",
+            "customFields": [
+                {
+                    "name": "status",
+                    "type": "string",
+                    "default": "IN_PROGRESS"
+                },
+                {
+                    "name": "businessInformation",
+                    "type": "string",
+                    "default": "{}"
+                },
+                {
+                    "name": "listingDetails",
+                    "type": "string",
+                    "default": "{}"
+                },
+                {
+                    "name": "premiumAppDetails",
+                    "type": "string",
+                    "default": "{}"
+                },
+                {
+                    "name": "workspaceId",
+                    "type": "string"
+                },
+                {
+                    "name": "attachments",
+                    "type": "string",
+                    "default": "{}"
+                },
+                {
+                    "name": "devFoundryNotes",
+                    "type": "string",
+                    "default": "[]"
+                },
+                {
+                    "name": "placeholder1",
+                    "type": "string"
+                },
+                {
+                    "name": "placeholder2",
+                    "type": "string"
+                },
+                {
+                    "name": "placeholder3",
+                    "type": "string"
+                },
+            ]
+        }
     }
 };
