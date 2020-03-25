@@ -3,7 +3,7 @@ import architectFlowViews from './views/architectflow.js'
 import loadModalView from './components/modals.js'
 import developerRoleFlowViews from './views/developerRole.js'
 
-// const clientId = '83d37bf5-e050-47bf-9937-0314b259c9c4';
+const clientId = '83d37bf5-e050-47bf-9937-0314b259c9c4';
 const redirectUri = window.location.href;
 const platformClient = require('platformClient');
 const client = platformClient.ApiClient.instance;
@@ -11,9 +11,9 @@ const client = platformClient.ApiClient.instance;
 // Set PureCloud settings
 client.setEnvironment('mypurecloud.com');
 $(document).ready(() => {
-//     client.loginImplicitGrant(clientId, redirectUri)
-//         .then(() => {
-//             console.log('Logged in');
+     client.loginImplicitGrant(clientId, redirectUri)
+         .then(() => {
+             console.log('Logged in');
             let token = client.authData.accessToken;
 
 
@@ -33,8 +33,8 @@ $(document).ready(() => {
             // Trigger uninstall button to uninstall app.
             document.getElementById("btnUninstall").addEventListener('click', () => window.location='./wizard/uninstall.html')
 
-//         })
-//         .catch((err) => console.error(err));
+         })
+         .catch((err) => console.error(err));
 })
 
 
