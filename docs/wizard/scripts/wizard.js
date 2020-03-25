@@ -28,7 +28,8 @@ let client = null;
 
 let userMe = null;
 let installedData = {};
-
+let org = null;
+let pcEnvironment = '';
 
 /**
  * Get's all the currently installed items as defined in the
@@ -48,9 +49,12 @@ function getInstalledObjects(){
 }
 
 export default {
-    setup(pcClient, user){
+    setup(pcClient, user, orgObject, env){
+        console.log(pcClient);
         client = pcClient;
         userMe = user;
+        org = orgObject;
+        pcEnvironment = env;
 
         // Use only modules in provisioning info
         modules = modules.filter((module) => {
@@ -130,7 +134,8 @@ export default {
                 provisionItems.forEach((item) => {
                     if(item.finally){
                         finalFunctionPromises.push(
-                            item.finally(installedData[key][item.name])
+                            item.finally(installedData[key][item.name], 
+                                org, pcEnvironment)
                         );
                     }
                 })

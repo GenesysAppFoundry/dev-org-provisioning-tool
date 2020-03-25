@@ -1,13 +1,9 @@
-import wizardConfig from '../../wizard/config.js';
-
-// Toggle whether testing in production or locally.
-let isLocalhostTesting = true;
+import globalConfig from '../../config/global-config.js';
 
 let origin = 'https://genesysappfoundry.github.io';
-let clientIDs = wizardConfig.clientIDs;
-if(isLocalhostTesting){
+let clientIDs = globalConfig.clientIDs;
+if(globalConfig.isTestEnvironment){
     origin = 'http://localhost:8080';
-    clientIDs['mypurecloud.com'] = 'e7de8a75-62bb-43eb-9063-38509f8c21af';
 }
 
 // Keep origin as tld as it's being used 
@@ -18,7 +14,7 @@ const root = (origin == 'https://genesysappfoundry.github.io') ?
                 origin;
 
 export default {    
-    clientIDs: clientIDs,
+    clientIDs: globalConfig.clientIDs,
 
     "root": root,
     "origin": origin,
