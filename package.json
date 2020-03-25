@@ -1,0 +1,26 @@
+{
+  "name": "dev-org-provisioning-tool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GenesysAppFoundry/dev-org-provisioning-tool.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GenesysAppFoundry/dev-org-provisioning-tool/issues"
+  },
+  "homepage": "https://github.com/GenesysAppFoundry/dev-org-provisioning-tool#readme"
+}
