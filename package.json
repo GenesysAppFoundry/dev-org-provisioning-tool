@@ -15,12 +15,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GenesysAppFoundry/dev-org-provisioning-tool.git"
+    "url": "git+https://github.com/GenesysAppFoundry/partner-enablement-tools.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/GenesysAppFoundry/dev-org-provisioning-tool/issues"
+    "url": "https://github.com/GenesysAppFoundry/partner-enablement-tools/issues"
   },
-  "homepage": "https://github.com/GenesysAppFoundry/dev-org-provisioning-tool#readme"
+  "homepage": "https://github.com/GenesysAppFoundry/partner-enablement-tools#readme"
 }
