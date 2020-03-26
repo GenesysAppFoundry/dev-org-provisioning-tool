@@ -2,6 +2,14 @@
 let isTestEnvironment = true;
 
 console.log(`Running in ${isTestEnvironment ? 'TEST' : 'PROD'} environment`);
+
+// PureCloud Integration type name for this app 
+let appName = 'premium-app-example';
+
+// PREFIX for provisioned PureCloud objects. Used by wizard and other app that
+// test the existence of these objects
+let prefix = 'T_DEV_ORG_PROVISIONING_TOOL_';
+
 // Client IDs when testing the app in localhost
 let testClientIDs = {
     'mypurecloud.com': 'e7de8a75-62bb-43eb-9063-38509f8c21af',
@@ -19,5 +27,7 @@ let prodClientIDs = {
 
 export default {
     clientIDs: isTestEnvironment ? testClientIDs : prodClientIDs,
-    isTestEnvironment: isTestEnvironment
+    isTestEnvironment: isTestEnvironment,
+    appName: appName,
+    prefix: prefix
 }

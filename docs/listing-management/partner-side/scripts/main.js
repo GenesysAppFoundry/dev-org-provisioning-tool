@@ -1,6 +1,7 @@
 import view from './view.js';
 import modal from '../../components/main.js';
 import config from '../../config/config.js';
+import globalConfig from '../../../config/global-config.js';
 import blankCoreListingJSON from '../../config/core-listing-blank.js';
 import blankPremiumAppJSON from '../../config/premium-app-listing-blank.js';
 import cheatChat from './cheat-chat.js';
@@ -8,7 +9,7 @@ import cheatChat from './cheat-chat.js';
 //Load purecloud and create the ApiClient Instance
 const platformClient = require('platformClient');
 const client = platformClient.ApiClient.instance;
-client.setPersistSettings(true, 'listing_management');
+client.setPersistSettings(true, globalConfig.appName);
 
 // Create API instances
 const contentManagementApi = new platformClient.ContentManagementApi();

@@ -15,7 +15,7 @@ export default {
 
     // PureCloud assigned name for the premium app
     // This should match the integration type name of the Premium App
-    'appName': 'premium-app-example',
+    'appName': globalConfig.appName,
 
     // Default Values for fail-safe/testing. Shouldn't have to be changed since the app
     // must be able to determine the environment from the query parameter 
@@ -33,7 +33,7 @@ export default {
     'setupPermissionsRequired': ['admin'],
 
     // To be added to names of PureCloud objects created by the wizard
-    'prefix': 'T_DEV_ORG_PROVISIONING_TOOL_',
+    'prefix': globalConfig.prefix,
 
     // These are the PureCloud items that will be added and provisioned by the wizard
     'provisioningInfo': {
