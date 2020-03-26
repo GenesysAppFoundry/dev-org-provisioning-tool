@@ -261,13 +261,17 @@ window.hideCreationModal = modal.hideCreationModal;
 
 view.addHeader();
 // Authenticate
-// TODO: regional authentication
-client.loginImplicitGrant('e7de8a75-62bb-43eb-9063-38509f8c21af', 
+// Authenticate
+environment = localStorage.getItem(globalConfig.appName + ':environment');
+if(!environment){
+    throw new Error('Environment not found from localstorage.');
+}
+let clientId = globalConfig.clientIDs[environment]; 
+client.loginImplicitGrant(clientId, 
                         window.location.href.split('?')[0])
 .then(() => {
     console.log('PureCloud Auth successful.');
 
-    environment = client.environment;
     // Add modals to DOM
     modal.setup();
 

@@ -1,6 +1,7 @@
 import view from './view.js';
 import modal from '../../components/main.js';
 import config from '../../config/config.js';
+import globalConfig from '../../../config/global-config.js';
 import validators from '../../config/validators.js';
 import assignValidator from './util/assign-validator.js';
 import fieldInterface from './util/field-interface.js';
@@ -460,14 +461,17 @@ modal.showLoader('Loading Listing...');
 
 view.addHeader();
 // Authenticate
-// TODO: regional authentication
-client.loginImplicitGrant('e7de8a75-62bb-43eb-9063-38509f8c21af', 
+environment = localStorage.getItem(globalConfig.appName + ':environment');
+if(!environment){
+    throw new Error('Environment not found from localstorage.');
+}
+let clientId = globalConfig.clientIDs[environment]; 
+client.loginImplicitGrant(clientId, 
                     window.location.href.split('?')[0],
                     {state: listingId})
 .then((data) => {
     listingId = client.authData.state;
     console.log('PureCloud Auth successful.');
-    environment = client.environment;
 
     // Checks if the query params are already in the URL, if not readd it
     if(!window.location.href.includes('?')){
