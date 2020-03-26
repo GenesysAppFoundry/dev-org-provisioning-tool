@@ -8,7 +8,7 @@ let appName = 'premium-app-example';
 
 // PREFIX for provisioned PureCloud objects. Used by wizard and other app that
 // test the existence of these objects
-let prefix = 'T_DEV_ORG_PROVISIONING_TOOL_';
+let prefix = 'DEV_ORG_PROVISIONING_TOOL_';
 
 // Client IDs when testing the app in localhost
 let testClientIDs = {
