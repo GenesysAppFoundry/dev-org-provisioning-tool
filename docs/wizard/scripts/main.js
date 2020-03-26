@@ -10,6 +10,7 @@ const ClientApp = window.purecloud.apps.ClientApp;
 // API 
 const usersApi = new platformClient.UsersApi();
 const integrationsApi = new platformClient.IntegrationsApi();
+const organizationApi = new platformClient.OrganizationApi();
 
 // Constants
 const appName = config.appName;
@@ -21,7 +22,7 @@ let pcEnvironment = localStorage.getItem(appName + ':environment') ||
                     config.defaultPcEnvironment;
 let clientApp = null;
 let userMe = null;
-
+let org = null
 
 function queryParamsConfig(){
     // Get Query Parameters
@@ -85,10 +86,15 @@ function setup(){
     .then((user) => {
         userMe = user;
 
+        return organizationApi.getOrganizationsMe();
+    })
+    .then((result) => {
+        org = result;
+
         return setPageLanguage();
     })  
     .then(() => {
-        wizard.setup(client, userMe);
+        wizard.setup(client, userMe, org, pcEnvironment);
 
         return runPageScript();
     })  

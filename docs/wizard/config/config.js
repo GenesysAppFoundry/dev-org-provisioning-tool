@@ -1,23 +1,21 @@
+import cheatChat from '../../listing-management/partner-side/scripts/cheat-chat.js';
+import globalConfig from '../../config/global-config.js';
+
 export default {
-    clientIDs: {        
-        'mypurecloud.com': 'e4163c90-2168-400a-9441-cb2c8ae7ccc2',
-        'mypurecloud.ie': '377bf436-7787-4ed0-83d7-7ade528ff4ed',
-        'mypurecloud.com.au': 'ae206cd0-a70e-481d-86f4-b1bfb61498de',
-        'mypurecloud.jp': '265993a4-931a-44e5-a0b1-80519c3edb25',
-        'mypurecloud.de':  '5f25a1d0-7b42-416b-beb3-fa708e7b2e65',
-        'usw2.pure.cloud': '0d09a06e-f09a-47ed-8556-080479596414'
-        
-    },
-    //'wizardUriBase': 'http://localhost:3000/wizard/',
-    'wizardUriBase': 'https://genesysappfoundry.github.io/dev-org-provisioning-tool/wizard/',
+    clientIDs: globalConfig.clientIDs,
+
+    'wizardUriBase': globalConfig.isTestEnvironment ? 
+            'http://localhost:8080/wizard/' :
+            'https://genesysappfoundry.github.io/dev-org-provisioning-tool/wizard/',
 
     // The actual URL of the landing page of your web app.
-    //'premiumAppURL': 'http://localhost:3000/',
-    'premiumAppURL': 'https://genesysappfoundry.github.io/dev-org-provisioning-tool/',
+    'premiumAppURL': globalConfig.isTestEnvironment ? 
+            'http://localhost:8080/' : 
+            'https://genesysappfoundry.github.io/dev-org-provisioning-tool/',
 
     // PureCloud assigned name for the premium app
     // This should match the integration type name of the Premium App
-    'appName': 'premium-app-example',
+    'appName': globalConfig.appName,
 
     // Default Values for fail-safe/testing. Shouldn't have to be changed since the app
     // must be able to determine the environment from the query parameter 
@@ -35,7 +33,7 @@ export default {
     'setupPermissionsRequired': ['admin'],
 
     // To be added to names of PureCloud objects created by the wizard
-    'prefix': 'DEV_ORG_PROVISIONING_TOOL_',
+    'prefix': globalConfig.prefix,
 
     // These are the PureCloud items that will be added and provisioned by the wizard
     'provisioningInfo': {
@@ -49,6 +47,11 @@ export default {
                         'entityName': 'examplePremiumApp',
                         'actionSet': ['*'],
                         'allowConditions': false
+                    },
+                    {
+                        "domain": "architect",
+                        "entityName": "datatable",
+                        "actionSet": ["*"]
                     }
                 ]
             }
@@ -61,16 +64,12 @@ export default {
             {
                 'name': 'Supervisors',
                 'description': 'Supervisors have the ability to watch a queue for ACD conversations.',
+            },
+            {
+                "name": "Listing Manager",
+                "description": "People that will have acess to the Listing Info Workspce.",
             }
         ],
-//         'app-instance': [
-//             {
-//                 'name': 'Agent Widget',
-//                 'url': 'https://jenissabarrera.github.io/devorgProvisioningTool/index.html?lang={{pcLangTag}}&environment={{pcEnvironment}}',
-//                 'type': 'widget',
-//                 'groups': ['Agents']
-//             }
-//         ],
         'oauth-client': [
             {
                 'name': 'OAuth Client',
@@ -86,15 +85,68 @@ export default {
                  * For Client Credentials, normally it means
                  * passing the details to the backend.
                  * @param {Object} installedData the PureCloud resource created
+                 * @param {Object} org orgname
+                 * @param {String} pcEnvironment eg mypurecloud.com
                  * @returns {Promise}    
                  */
-                'finally': function(installedData){
-                    return new Promise((resolve, reject) => {
-                        console.log('Fake Sending Credentials...');
-                        setTimeout(() => resolve(), 2000);
-                    });
+                'finally': function(installedData, org, pcEnvironment){
+                    cheatChat.setUp(org, pcEnvironment);
+                    return cheatChat.submitClientCredentials(installedData);
                 }
             }
-        ]
+        ],
+        'data-table': [{
+            "name": "Listings",
+            "description": "Contains the details of your app listings.",
+            "referenceKey": "id",
+            "customFields": [
+                {
+                    "name": "status",
+                    "type": "string",
+                    "default": "IN_PROGRESS"
+                },
+                {
+                    "name": "businessInformation",
+                    "type": "string",
+                    "default": "{}"
+                },
+                {
+                    "name": "listingDetails",
+                    "type": "string",
+                    "default": "{}"
+                },
+                {
+                    "name": "premiumAppDetails",
+                    "type": "string",
+                    "default": "{}"
+                },
+                {
+                    "name": "workspaceId",
+                    "type": "string"
+                },
+                {
+                    "name": "attachments",
+                    "type": "string",
+                    "default": "{}"
+                },
+                {
+                    "name": "devFoundryNotes",
+                    "type": "string",
+                    "default": "[]"
+                },
+                {
+                    "name": "placeholder1",
+                    "type": "string"
+                },
+                {
+                    "name": "placeholder2",
+                    "type": "string"
+                },
+                {
+                    "name": "placeholder3",
+                    "type": "string"
+                },
+            ]
+        }]
     }
 };
