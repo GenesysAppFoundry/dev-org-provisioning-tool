@@ -11,7 +11,7 @@
 }
 
 a {
-    color: #FF4F1F !important;
+    color: #FF4F1F;
 }
 
 .form-label {
@@ -44,7 +44,7 @@ a {
     margin-left: 10px;
 }
 
-.button {
+.btn {
     height: 40px;
     border-radius: 25px;
     color: #fff !important;
@@ -53,7 +53,7 @@ a {
     font-size: 16px;
 }
 
-.button:hover {
+.btn:hover {
     height: 40px;
     border-radius: 25px;
     border-color: #FF4F1F !important;
@@ -62,7 +62,7 @@ a {
     border: 2px solid #FF4F1F;    
 }
 
-.button:focus {
+.btn:focus {
     box-shadow: 0 0 0 0 !important;
     border-color: #FF4F1F !important;
 }
@@ -71,7 +71,7 @@ button.delete:hover {
     background-color: #FF4F1F !important;
 }
 
-.button.is-light {
+.btn.is-light {
     height: 40px;
     border-radius: 25px;
     border-color: #FF4F1F !important;
@@ -80,7 +80,7 @@ button.delete:hover {
     border: 2px solid #FF4F1F;   
 }
 
-.button.is-light:hover {
+.btn.is-light:hover {
     height: 40px;
     border-radius: 25px;
     color: #fff !important;
@@ -194,24 +194,42 @@ button.delete:hover {
     background-color: #f5ffff;
 }
 
-section#hero {
+div#hero {
+    padding-top: 0;
+    padding-bottom: 0;
     background-color: #5d3e5d;
 }
 
-section#hero a {
+div#hero a {
     color: #FFFFFF;
 }
-section#hero a:hover {
+div#hero a:hover {
     background-color: #755175;
 }
 
-
-section#hero img {
+div#hero img {
     max-height: 1rem;
 }
 
-section#hero div.hero-body {
+div#hero div.hero-body {
     padding: 1.5rem;
+}
+
+div#hero .logo-container{
+    display:flex
+}
+
+div#hero .refresh-container a{
+    justify-content: center;
+}
+
+div#hero a{
+    padding: 18px 10px;
+    display:flex
+}
+
+div.listing-card {
+    margin-bottom: 20px;
 }
 
 #second-refresh {

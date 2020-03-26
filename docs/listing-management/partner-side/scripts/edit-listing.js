@@ -13,7 +13,7 @@ import cheatChat from './cheat-chat.js';
 //Load purecloud and create the ApiClient Instance
 const platformClient = require('platformClient');
 const client = platformClient.ApiClient.instance;
-client.setPersistSettings(true, 'listing_management');
+client.setPersistSettings(true, globalConfig.appName);
 
 // Create API instances
 const contentManagementApi = new platformClient.ContentManagementApi();

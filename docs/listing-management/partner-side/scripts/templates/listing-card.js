@@ -42,6 +42,40 @@ t.innerHTML =
 </div>
 `;
 
+t.innerHTML = 
+`
+<div class="card listing-card">
+  <div class="card-header">
+    <span class="listing-name">Listing Name</span>
+  </div>
+  <div class="card-body">
+    <div>
+      Description: <span class="listing-description">Description of Listing</span>
+    </div>
+    <div>
+        Status: <span class="listing-status">---</span>
+    </div>
+    <div>
+        <span class="devfoundry-comment-notif">
+            ----- Genesys commented on this Listing -----
+        </span>
+    </div>
+    <hr>
+    <div>
+        <a class="btn btn-primary btn-view-listing">
+            View
+        </a>
+        <a class="btn btn-primary btn-edit-listing">
+            Edit
+        </a>
+        <a class="btn btn-primary btn-delete-listing">
+            Delete
+        </a>
+    </div>
+  </div>
+</div>
+`;
+
 export default {
     new(dataTableRow){
         let el = document.importNode(t.content, true);
