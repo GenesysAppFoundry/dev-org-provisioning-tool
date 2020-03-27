@@ -321,6 +321,7 @@ function submitListing(){
     'Confirmation', 
     'Are you sure you\'re ready to submit this for approval? This will save the listing before submission',
     () => {
+        modal.hideYesNoModal();
         // Validate fields first
         if(!validateAllFields()){
             modal.showInfoModal(
@@ -328,7 +329,6 @@ function submitListing(){
                 'Some fields are incorrect. Please review.',
                 () => {
                     modal.hideInfoModal();
-                    modal.hideYesNoModal();
                 });
 
             return;
