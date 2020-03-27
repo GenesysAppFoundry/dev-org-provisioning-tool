@@ -117,7 +117,7 @@ button :focus {
   vertical-align:middle;
   overflow:hidden;
   text-decoration:none;
-  color:inherit;
+  color: #FF4F1F;
   background-color:inherit;
   text-align:center;
   cursor:pointer;
