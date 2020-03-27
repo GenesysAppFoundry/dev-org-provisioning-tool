@@ -1,0 +1,15 @@
+.tab-content {
+    margin-top: 10px;
+}
+
+.nav-item span {
+    font-size: 1.25rem;
+}
+
+.nav-link span {
+    color: #4a4a4a;
+}
+
+.nav-link.active span {
+    color: #FF4F1F;
+}

@@ -50,7 +50,6 @@ let isPremiumApp = false; // Don't set this manually, use the setPremiumAppStatu
  */
 function setUp(){
     // Default view setup for the page
-    view.showListingDetailsTab();
 
     // Set up Cheat Chat
     return organizationApi.getOrganizationsMe()
@@ -426,32 +425,6 @@ function assignEventHandlers(){
 
                 submitListing();
             });
-
-    // Tabs
-    document.getElementById('listing-details-tab')
-        .addEventListener('click', function(){
-            view.showListingDetailsTab();
-        });
-
-    document.getElementById('premium-app-details-tab')
-        .addEventListener('click', function(){
-            view.showPremiumAppDetailsTab();
-        });
-
-    document.getElementById('preview-listing-tab')
-        .addEventListener('click', function(){
-            view.showPreviewListingTab();
-            updatePreviewListing();
-        });
-
-    // Premium App Checkbox
-    document.getElementById('cb-p-app-isPremiumApp')
-        .addEventListener('change', function(){
-            // Call setter only if it's a togglet to prevent infinite loop
-            if(this.checked != isPremiumApp){
-                setPremiumAppStatus(this.checked);
-            }
-        })
 }
 
 
