@@ -1,7 +1,7 @@
 let t = document.createElement('template');
 t.innerHTML =
 `
-<div class="box devfoundry-note">
+<div class="alert alert-primary devfoundry-note">
     <article class="media">
     <div class="media-content">
         <div class="note-from"><em>From:</em> <span class="from"></span></div>

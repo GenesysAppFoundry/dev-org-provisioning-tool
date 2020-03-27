@@ -75,6 +75,7 @@
       </li>
     </ul>
 
+    <!-- TAB CONTENT -->
     <div class="tab-content">
       <!-- Listing Details -->
       <div class="tab-pane fade show active" id="edit-listing" role="tabpanel" aria-labelledby="edit-listing-tab">
@@ -732,9 +733,9 @@
       </div>
 
       <!-- Premium App Details -->
-      <div class="tab-pane fade show active" id="edit-listing-pa" role="tabpanel" aria-labelledby="edit-listing-pa-tab">
+      <div class="tab-pane fade" id="edit-listing-pa" role="tabpanel" aria-labelledby="edit-listing-pa-tab">
         <form action="" id="edit-listing-pa-form">
-          <div class="box information-box">
+          <div class="alert alert-primary information-box">
             <p>(Premium App explanation here.)</p>
             <br>
             <p>More Details here: 
@@ -971,7 +972,7 @@
 
       <!-- Listing Preview -->
       <div class="tab-pane fade" id="preview-listing" role="tabpanel" aria-labelledby="preview-listing-tab">
-        <div class="box information-box">
+        <div class="alert alert-primary information-box">
           <p>• DISCLAIMER: Since this is a preview it should not be treated as an exact visual and functional representation of the final listing.
           </p>
           <br>
@@ -984,15 +985,9 @@
     <!-- Buttons  -->
     <hr>
     <div class="field is-grouped" id="edit-listing-controls">
-      <div class="control">
-        <button id="btn-save" class="button is-link">Save</button>
-      </div>
-      <div class="control">
-        <button id="btn-cancel" class="button is-link is-light">Cancel</button>
-      </div>
-      <div class="control">
-        <button id="btn-submit" class="button is-link is-light">Submit</button>
-      </div>
+      <button id="btn-save" class="btn is-link">Save</button>
+      <button id="btn-cancel" class="btn is-link is-light">Cancel</button>
+      <button id="btn-submit" class="btn is-link is-light">Submit</button>
     </div>
   </div>
 
