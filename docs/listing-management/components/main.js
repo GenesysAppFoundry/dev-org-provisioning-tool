@@ -23,16 +23,14 @@ export default {
      * Show the modal for creating a new listing
      */
     showCreationModal(){
-        const modal = document.getElementById('listing-creation-modal');
-        modal.classList.add('is-active');
+        newListingModal.show();
     }, 
 
     /**
      * Hide the modal for creating a new listing
      */
     hideCreationModal(){
-        const modal = document.getElementById('listing-creation-modal');
-        modal.classList.remove('is-active')
+        newListingModal.hide();
     }, 
 
     /**

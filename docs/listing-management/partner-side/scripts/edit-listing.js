@@ -1,6 +1,7 @@
 import view from './view.js';
 import modal from '../../components/main.js';
 import config from '../../config/config.js';
+import globalConfig from '../../../config/global-config.js';
 import validators from '../../config/validators.js';
 import assignValidator from './util/assign-validator.js';
 import fieldInterface from './util/field-interface.js';
@@ -12,7 +13,7 @@ import cheatChat from './cheat-chat.js';
 //Load purecloud and create the ApiClient Instance
 const platformClient = require('platformClient');
 const client = platformClient.ApiClient.instance;
-client.setPersistSettings(true, 'listing_management');
+client.setPersistSettings(true, globalConfig.appName);
 
 // Create API instances
 const contentManagementApi = new platformClient.ContentManagementApi();
@@ -49,7 +50,6 @@ let isPremiumApp = false; // Don't set this manually, use the setPremiumAppStatu
  */
 function setUp(){
     // Default view setup for the page
-    view.showListingDetailsTab();
 
     // Set up Cheat Chat
     return organizationApi.getOrganizationsMe()
@@ -320,6 +320,7 @@ function submitListing(){
     'Confirmation', 
     'Are you sure you\'re ready to submit this for approval? This will save the listing before submission',
     () => {
+        modal.hideYesNoModal();
         // Validate fields first
         if(!validateAllFields()){
             modal.showInfoModal(
@@ -327,7 +328,6 @@ function submitListing(){
                 'Some fields are incorrect. Please review.',
                 () => {
                     modal.hideInfoModal();
-                    modal.hideYesNoModal();
                 });
 
             return;
@@ -374,7 +374,6 @@ function setPremiumAppStatus(status){
         view.hidePremiumAppFields();
     }
 }
-
 
 /**
  * Send a message to the preview listing iframe to update it 
@@ -426,31 +425,14 @@ function assignEventHandlers(){
                 submitListing();
             });
 
-    // Tabs
-    document.getElementById('listing-details-tab')
-        .addEventListener('click', function(){
-            view.showListingDetailsTab();
-        });
-
-    document.getElementById('premium-app-details-tab')
-        .addEventListener('click', function(){
-            view.showPremiumAppDetailsTab();
-        });
-
-    document.getElementById('preview-listing-tab')
-        .addEventListener('click', function(){
-            view.showPreviewListingTab();
-            updatePreviewListing();
-        });
-
     // Premium App Checkbox
     document.getElementById('cb-p-app-isPremiumApp')
-        .addEventListener('change', function(){
-            // Call setter only if it's a togglet to prevent infinite loop
-            if(this.checked != isPremiumApp){
-                setPremiumAppStatus(this.checked);
-            }
-        })
+    .addEventListener('change', function(){
+        // Call setter only if it's a togglet to prevent infinite loop
+        if(this.checked != isPremiumApp){
+            setPremiumAppStatus(this.checked);
+        }
+    })
 }
 
 
@@ -460,14 +442,17 @@ modal.showLoader('Loading Listing...');
 
 view.addHeader();
 // Authenticate
-// TODO: regional authentication
-client.loginImplicitGrant('e7de8a75-62bb-43eb-9063-38509f8c21af', 
+environment = localStorage.getItem(globalConfig.appName + ':environment');
+if(!environment){
+    throw new Error('Environment not found from localstorage.');
+}
+let clientId = globalConfig.clientIDs[environment]; 
+client.loginImplicitGrant(clientId, 
                     window.location.href.split('?')[0],
                     {state: listingId})
 .then((data) => {
     listingId = client.authData.state;
     console.log('PureCloud Auth successful.');
-    environment = client.environment;
 
     // Checks if the query params are already in the URL, if not readd it
     if(!window.location.href.includes('?')){

@@ -1,18 +1,10 @@
+const id = 'loading-modal';
 let t = document.createElement('template');
 t.innerHTML =
 `
-<div id="loading-modal" class="modal">
-<div class="modal-background"></div>
-<div class="modal-content has-text-centered">
-    <div class="fa-5x">
-        <i class="fas fa-spinner fa-spin genOrange"></i>
-    </div>
-    <p class="loading-text genOrange">
-        Testing
-    </p>
-</div>
-</div>
-`;
+<div id="${id}" class="modal">           
+    <div class="loader loader-default is-active" data-text="Custom text" data-blink></div>
+</div>`;
 
 export default {
     new(){
@@ -20,13 +12,15 @@ export default {
     },
 
     show(message){
-        let el = document.getElementById('loading-modal');
-        el.querySelectorAll('.loading-text')[0].innerText = message;
-        el.classList.add('is-active');
+        let el = document.getElementById(id);
+        let loaderEl = el.querySelectorAll('.loader')[0];
+        loaderEl.setAttribute('data-text', message);
+        $(`#${id}`).modal('show'); 
     },
 
     hide(){
-        let el = document.getElementById('loading-modal');
-        el.classList.remove('is-active');
-    }
+        $(`#${id}`).modal('hide'); 
+    },
+
+    id: id
 };

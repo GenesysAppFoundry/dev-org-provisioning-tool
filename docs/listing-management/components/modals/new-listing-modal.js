@@ -1,32 +1,33 @@
+const id = 'listing-creation-modal';
 let t = document.createElement('template');
+
 t.innerHTML =
 `
-<div id="listing-creation-modal" class="modal">
-<div class="modal-background"></div>
-<div class="modal-card">
-  <header class="modal-card-head">
-    <p class="modal-card-title">Create New Listing</p>
-    <button class="delete" aria-label="close" onclick="hideCreationModal()"></button>
-  </header>
-  <section class="modal-card-body">
-    <p>App Name</p>
-    <div class="control has-icons-right">
-      <input id="new-listing-name" class="input" type="text" placeholder="My Amazing App">
-      <span class="icon is-small is-right">
-        <i class="fas fa-check"></i>
-      </span>
+<div id="${id}" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="new-listing-name">App Name</label>
+          <input type="email" class="form-control" id="new-listing-name">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cancel
+        </button>
+        <button type="button" id="btn-create-listing" class="btn btn-primary">
+          Create
+        </button>
+      </div>
     </div>
-  </section>
-  <footer class="modal-card-foot">
-    <button class="button is-success" id="btn-create-listing">
-      Create
-    </button>
-    <button class="button" onclick="hideCreationModal()">
-      Cancel
-    </button>
-  </footer>
-</div>
-</button>
+  </div>
 </div>
 `;
 
@@ -45,5 +46,15 @@ export default {
         });
 
         return element;
-    }
+    },
+
+    show(){
+      $(`#${id}`).modal('show');
+    },
+
+    hide(){
+      $(`#${id}`).modal('hide');
+    },
+
+    id: id
 };
