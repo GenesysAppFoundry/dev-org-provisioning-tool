@@ -4,29 +4,32 @@ t.innerHTML =
 <div class="card use-case">
   <div class="card-content">
     <span class="card-header-icon">
-      <button class="delete" aria-label="close"></button>
+      <button type="button" class="close delete" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </span>
     <div class="content div-section">
       <div class="div-info">
         <label class="label">Title</label>
         <div class="control">
-          <input class="input useCase-title" type="text" placeholder="" value="">
+          <input class="form-control useCase-title" type="text" placeholder="" value="">
         </div>
         <label class="label">Summary <span class="md-format-text">(MarkDown Format)</span></label>
         <div class="control">
-          <textarea class="textarea useCase-summary" placeholder="Summary" value=""></textarea>
+          <textarea class="form-control useCase-summary" placeholder="Summary" value=""></textarea>
         </div>
       </div>
       <div class="div-info">
         <label class="label">Business Benefits <span class="md-format-text">(MarkDown Format)</span></label>
         <div class="control">
-          <textarea class="textarea useCase-benefits" placeholder="Business Benefits" value=""></textarea>
+          <textarea class="form-control useCase-benefits" placeholder="Business Benefits" value=""></textarea>
         </div>
       </div>      
     </div>
   </div>
 </div>
 `;
+
 
 const idPrefix = 'use-case_';
 

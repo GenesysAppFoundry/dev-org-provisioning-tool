@@ -70,9 +70,6 @@ a {
     border-color: #FF4F1F !important;
 }
 
-button.delete:hover {
-    background-color: #FF4F1F !important;
-}
 
 .btn.is-light {
     height: 40px;
@@ -156,27 +153,6 @@ button.delete:hover {
     justify-content: flex-end !important;
 }
 
-.file-label.btn {
-    margin-bottom: 10px;
-}
-
-.file-cta {
-    height: 40px;
-    border-radius: 25px;
-    border-color: #FF4F1F !important;
-    color: #FF4F1F !important;
-    background-color: #fff !important;    
-    border: 2px solid #FF4F1F;
-}
-
-.file-cta:hover {
-    height: 40px;
-    border-radius: 25px;
-    color: #fff !important;
-    background-color: #FF4F1F !important;
-    border: 2px solid #FF4F1F;
-    font-size: 16px;
-}
 
 /* Hide by default */
 .preview-loading {
