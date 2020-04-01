@@ -30,6 +30,60 @@ li {
 li:hover {
   border-radius: .5rem;
   border: 1px solid #FF4F1F;
+  background-color: #FF4F1F;
+  color: white;
+}
+
+li:hover a {
+  color: white;
+}
+
+.provisioning-url {
+  background-image: url('./assets/process.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%; 
+  margin-bottom: 10px;
+}
+
+#provisioning-url:hover .provisioning-url{
+  background-image: url('./assets/process-white.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%; 
+  background-color: #FF4F1F;
+}
+
+.listing-url {
+  background-image: url('./assets/rocket.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%; 
+  margin-bottom: 10px;
+}
+
+#listing-url:hover .listing-url {
+  background-image: url('./assets/rocket-white.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%; 
+  background-color: #FF4F1F;
+}
+
+.uninstall-url {
+  background-image: url('./assets/caution.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%; 
+  margin-bottom: 10px;
+}
+
+#uninstall-url:hover .uninstall-url{
+  background-image: url('./assets/caution-white.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%; 
+  background-color: #FF4F1F;
 }
 
 .tools-container {

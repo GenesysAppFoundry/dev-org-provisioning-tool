@@ -4,21 +4,21 @@ t.innerHTML =
 `
     <div class="row menu-container">
         <ul class="sidebar-list">
-            <li>
+            <li id="provisioning-url">
                 <a href="/org-provisioning/index.html">
-                    <img src="/landing-page/assets/process.png" style="width:80px; height:80px" />
+                    <div class="provisioning-url" style="width:90px; height:80px"></div>
                     <span>Dev Org Provisioning</span>
                 </a>
             </li>
-            <li>
+            <li id="listing-url">
                 <a href="/listing-management/partner-side/index.html">
-                    <img src="/landing-page/assets/rocket.png" style="width:80px; height:80px"/>
+                    <div class="listing-url" style="width:90px; height:80px"></div>
                     <span>Listing Management</span>
                 </a>
             </li>
-            <li>
+            <li id="uninstall-url">
                 <a href="/wizard/uninstall.html">
-                    <img src="/landing-page/assets/caution.png" style="width:80px; height:80px"/>
+                    <div class="uninstall-url" style="width:90px; height:80px"></div>
                     <span>Uninstall</span>
                 </a>
             </li>
