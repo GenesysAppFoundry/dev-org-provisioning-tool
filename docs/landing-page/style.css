@@ -76,6 +76,7 @@ a {
 .jumbotron {
   background-image: linear-gradient( to right, #5D3D5D, #FF4F1F);
   padding: 2rem !important;
+  margin-bottom: 0px !important;
 }
 
 a {
