@@ -5,6 +5,8 @@ import globalConfig from '../../../config/global-config.js';
 import blankCoreListingJSON from '../../config/core-listing-blank.js';
 import blankPremiumAppJSON from '../../config/premium-app-listing-blank.js';
 import cheatChat from './cheat-chat.js';
+import header from '../../../landing-page/components/header.js';
+import sidebar from '../../../landing-page/components/sidebar.js';
 
 //Load purecloud and create the ApiClient Instance
 const platformClient = require('platformClient');
@@ -258,9 +260,6 @@ window.showListingDeletionModal = showListingDeletionModal;
 window.showCreationModal = modal.showCreationModal;
 window.hideCreationModal = modal.hideCreationModal;
 
-
-view.addHeader();
-// Authenticate
 // Authenticate
 environment = localStorage.getItem(globalConfig.appName + ':environment');
 if(!environment){
@@ -281,6 +280,16 @@ client.loginImplicitGrant(clientId,
 .then(() => {
     modal.hideLoader();
 })    
+.then(() => {
+    // Display elements
+    const newHeaderEl = header.new("Listing Management");
+    const newSidebarEl = sidebar.new();
+    const newContentEL = modal.new();
+
+    document.body.appendChild(newHeaderEl);
+    document.body.appendChild(newSidebarEl);
+    document.body.appendChild(newContentEL);
+})
 .catch((e) => {
     console.error(e);
 });
