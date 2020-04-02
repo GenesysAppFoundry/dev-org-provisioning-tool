@@ -7,7 +7,7 @@ html {
   margin-right: 0px !important;
 }
 
-.sidebar-list {
+.menu-list {
   list-style-type: none;
   margin: 5px;
   padding: 5px;
@@ -19,26 +19,21 @@ html {
   justify-content: center;
 }
 
-li {
-  display: flex;
-  margin: 15px;
+.menu-list li a { 
+  margin: 15px; 
+  display: block; 
+  width: 145px; 
+  height: 100%; 
   padding: 15px 30px;
   text-align: center;
+}
+
+li {
+  display: flex;
   border: none;
 }
 
-li:hover {
-  border-radius: .5rem;
-  border: 1px solid #FF4F1F;
-  background-color: #FF4F1F;
-  color: white;
-}
-
-li:hover a {
-  color: white;
-}
-
-.provisioning-url {
+.menu-provisioning-url {
   background-image: url('./assets/process.png');
   background-position: center;
   background-repeat: no-repeat;
@@ -46,15 +41,7 @@ li:hover a {
   margin-bottom: 10px;
 }
 
-#provisioning-url:hover .provisioning-url{
-  background-image: url('./assets/process-white.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% 100%; 
-  background-color: #FF4F1F;
-}
-
-.listing-url {
+.menu-listing-url {
   background-image: url('./assets/rocket.png');
   background-position: center;
   background-repeat: no-repeat;
@@ -62,15 +49,7 @@ li:hover a {
   margin-bottom: 10px;
 }
 
-#listing-url:hover .listing-url {
-  background-image: url('./assets/rocket-white.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% 100%; 
-  background-color: #FF4F1F;
-}
-
-.uninstall-url {
+.menu-uninstall-url {
   background-image: url('./assets/caution.png');
   background-position: center;
   background-repeat: no-repeat;
@@ -78,12 +57,9 @@ li:hover a {
   margin-bottom: 10px;
 }
 
-#uninstall-url:hover .uninstall-url{
-  background-image: url('./assets/caution-white.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% 100%; 
-  background-color: #FF4F1F;
+#menu-provisioning-url:hover, #menu-listing-url:hover, #menu-uninstall-url:hover {
+  border: 1px solid #FF4F1F;
+  border-radius: .5rem;
 }
 
 .tools-container {
@@ -125,23 +101,22 @@ li:hover a {
   user-select: unset;
 }
 
-.display-3 {
+.display-4 {
   color: white;
 } 
 
 .jumbotron {
   background-image: linear-gradient( to right, #5D3D5D, #FF4F1F);
-  padding: 2rem !important;
-  margin-bottom: 0px !important;
+  padding: 1rem !important;
+  margin-bottom: 10px !important;
 }
 
 a {
-  color: #FF4F1F; 
-  width: 90px;
+  color: black;
 }
 
 a:hover {
-  color: #FF4F1F; 
+  color: black;
   text-decoration-line: none;
 }
 
@@ -161,14 +136,31 @@ button :focus {
   outline: 0;
 }
 
-.sidebar {
-  display: block;
-  height:100%;
-  width:200px;
-  background-color:#fff;
-  position: absolute!important;
-  z-index:1;
-  overflow:auto
+.sidebar-list {
+  list-style-type: none;
+  margin: 5px;
+  padding: 5px;
+}
+
+.sidebar-list li {
+  width: 210px;
+  padding: 5px;
+}
+
+.sidebar-list img {
+  margin-right: 10px;
+}
+
+.sidebar-list li:hover {
+  border: 1px solid #FF4F1F;
+  border-radius: .5rem;
+}
+
+.sidebar-list li a { 
+  margin: 0px; 
+  display: block; 
+  width: 100%; 
+  height: 100%; 
 }
 
 .bar-block .bar-item{

@@ -5,7 +5,7 @@ t.innerHTML =
     <div class="jumbotron">
       <div class="container">
 
-        <h1 class="display-3">Welcome to Partner Enablement Tools!</h1>
+        <h1 class="display-4">Welcome to Partner Enablement Tools!</h1>
 
         <p style="color: white;">What would you like to do?</p>
         <p>

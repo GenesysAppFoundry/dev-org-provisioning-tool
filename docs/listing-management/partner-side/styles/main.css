@@ -17,10 +17,6 @@ a {
     color: #FF4F1F;
 }
 
-a:hover {
-    color: #FF4F1F;
-}
-
 .form-label {
     color: #FF4F1F;
     display: block;
@@ -266,34 +262,4 @@ div.listing-card {
 #preview-listing-iframe {
     width: 100%;
     height: 800px;
-}
-
-.row {
-    margin-left: 0px !important;
-    margin-right: 0px !important;
-    flex-wrap: nowrap;
-}
-  
-.sidebar-list {
-    list-style-type: none;
-    margin: 5px;
-    padding: 5px;
-}
-
-li {
-    margin: 5px;
-    padding: 5px;
-}
-
-.pet-header{
-    padding-top: 0;
-    padding-bottom: 10px;
-}
-
-.jumbotron {
-    background-image: linear-gradient( to right, #5D3D5D, #FF4F1F);
-}
-
-.display-3 {
-    color: white;
 }
