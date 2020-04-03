@@ -1,5 +1,6 @@
 @import "loader.css";
 @import "edit-listing.css";
+@import "../../../landing-page/style.css";
 
 .genOrange{
     color: #FF4F1F;
