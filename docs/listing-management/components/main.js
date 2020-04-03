@@ -3,7 +3,24 @@ import newListingModal from './modals/new-listing-modal.js';
 import yesNoModal from './modals/yes-no-modal.js';
 import loadingModal from './modals/loading-modal.js';
 
+let t = document.createElement('template');
+
+t.innerHTML =
+`
+<section class="section">
+  <div class="container" id="listing-cards-container">
+  </div>
+</section>
+`;
+
 export default {
+    new(){
+        // Crete element
+        const element = document.importNode(t.content, true);
+
+        return element;
+    },
+
     /**
      * Add the modals to the DOM
      */
