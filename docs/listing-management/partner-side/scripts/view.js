@@ -134,10 +134,6 @@ export default {
         container.style.display = 'none';
     },
 
-    addHeader(){
-        let hero = document.getElementById('hero');
-        hero.appendChild(headerTemplate.new());
-    },
 
     setupPreviewWindow(data, origin){
         let previewEl = document.getElementById('preview-listing-iframe');
