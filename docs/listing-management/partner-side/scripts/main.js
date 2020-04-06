@@ -258,9 +258,9 @@ window.showListingDeletionModal = showListingDeletionModal;
 window.showCreationModal = modal.showCreationModal;
 window.hideCreationModal = modal.hideCreationModal;
 
+// Fix view with header, sidebar
+view.finalizeToolView();
 
-view.addHeader();
-// Authenticate
 // Authenticate
 environment = localStorage.getItem(globalConfig.appName + ':environment');
 if(!environment){
@@ -276,6 +276,7 @@ client.loginImplicitGrant(clientId,
     modal.setup();
 
     modal.showLoader('Please wait...');
+    
     return setUp(); 
 })
 .then(() => {

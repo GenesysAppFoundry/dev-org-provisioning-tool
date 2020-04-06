@@ -1,11 +1,12 @@
 import fieldInterface from './util/field-interface.js';
 import listingCardTemplate from './templates/listing-card.js';
 import devfoundryNoteTemplate from './templates/devfoundry-note.js';
-import headerTemplate from './templates/header.js';
 import addNewListing from './templates/add-new-listing.js';
 import hardwareAddons from './special-fields/hardware-addons.js';
 import useCases from './special-fields/use-cases.js';
 import validators from '../../config/validators.js';
+import header from '../../../landing-page/components/header.js';
+import sidebar from '../../../landing-page/components/sidebar.js';
 
 export default {
     /**
@@ -134,10 +135,6 @@ export default {
         container.style.display = 'none';
     },
 
-    addHeader(){
-        let hero = document.getElementById('hero');
-        hero.appendChild(headerTemplate.new());
-    },
 
     setupPreviewWindow(data, origin){
         let previewEl = document.getElementById('preview-listing-iframe');
@@ -154,5 +151,18 @@ export default {
         let previewWindow = document.getElementById('preview-listing-iframe')
                                 .contentWindow;
         previewWindow.location.reload();
+    },
+
+    finalizeToolView(){
+        // Display elements
+        const newHeaderEl = header.new("Listing Management");
+        const newSidebarEl = sidebar.new();
+
+        document.body.appendChild(newHeaderEl);
+        document.body.appendChild(newSidebarEl);
+
+        document.getElementById('tool-contents').appendChild(
+            document.getElementById('tool')
+        )
     }
 }

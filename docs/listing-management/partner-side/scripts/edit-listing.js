@@ -49,8 +49,6 @@ let isPremiumApp = false; // Don't set this manually, use the setPremiumAppStatu
  * Initial Setup for the page
  */
 function setUp(){
-    // Default view setup for the page
-
     // Set up Cheat Chat
     return organizationApi.getOrganizationsMe()
     .then((org) => {
@@ -440,7 +438,9 @@ function assignEventHandlers(){
 modal.setup();
 modal.showLoader('Loading Listing...');
 
-view.addHeader();
+// Default view setup for the page
+view.finalizeToolView();
+
 // Authenticate
 environment = localStorage.getItem(globalConfig.appName + ':environment');
 if(!environment){
@@ -459,6 +459,7 @@ client.loginImplicitGrant(clientId,
         history.pushState({}, '', window.location.href + '?id=' + listingId);
     }
 
+    
     return setUp(); 
 })
 .then(() => {
