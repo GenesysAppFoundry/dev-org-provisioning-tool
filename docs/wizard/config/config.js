@@ -58,14 +58,6 @@ export default {
         ],
         'group': [
             {
-                'name': 'Agents',
-                'description': 'Agents have access to a widget that gives US state information based on caller\'s number.',
-            },
-            {
-                'name': 'Supervisors',
-                'description': 'Supervisors have the ability to watch a queue for ACD conversations.',
-            },
-            {
                 "name": "Listing Manager",
                 "description": "People that will have acess to the Listing Info Workspce.",
             }

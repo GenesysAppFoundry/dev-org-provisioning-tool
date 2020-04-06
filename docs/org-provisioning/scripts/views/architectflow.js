@@ -39,7 +39,7 @@ const architectFlowViews = {
             architectFlowFunctions.downloadFlow(filename);
             universalModal.hideLoadingModal();
             universalModal.showNewModal(successModal);
-            successModal.show("Architect Flow", "Architect Flow successfully downloaded.","Finish", "")
+            successModal.show("Architect Flow", "Architect flow was successfully downloaded!","Finish", "")
     },
 
     /**
