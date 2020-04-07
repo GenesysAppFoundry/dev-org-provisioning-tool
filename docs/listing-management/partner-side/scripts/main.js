@@ -20,6 +20,7 @@ const architectApi = new platformClient.ArchitectApi();
 const organizationApi = new platformClient.OrganizationApi();
 
 // Globals
+let userMe = null; 
 let managerGroup = null;
 let listingDataTable = null;
 let listingsStatus = null; 
@@ -33,8 +34,14 @@ let environment = '';
  *      might be worth modularizig setup.
  */
 function setUp(){
-    // Get org info ad set up Cheat Chat
-    return organizationApi.getOrganizationsMe()
+
+    return usersApi.getUsersMe()
+    .then((user) => {
+        userMe = user;
+
+        // Get org info ad set up Cheat Chat
+        return organizationApi.getOrganizationsMe()
+    })
     .then((org) => {
         orgInfo = org;
 
@@ -55,21 +62,40 @@ function setUp(){
             console.log('Group detected.');
             managerGroup = result.results[0];
         } else {
-            throw new Error('Manager group not found');
+            return new Promise((resolve, reject) => {
+                modal.showInfoModal('Error', 
+                'Manager group not found. There must be something wrong with ' +
+                'your PET installation.',
+                    () => {
+                        reject('Manager group not found');
+                    }
+                )
+            });
         }
         
         return checkUserAccess();
     })
     .then(userHasAccess => {
-        if(!userHasAccess) alert('You don\'t have access to the group.');
-        // TODO: Page that will provide access to the group workspace
-
-        console.log('User has access to group.');
-
-        // Check and store a reference to the data table for listings
-        return architectApi.getFlowsDatatables({
+        let nextPromise = architectApi.getFlowsDatatables({
             pageSize: 100
         });
+        
+        // If user has no access then add them ot the group.
+        if(!userHasAccess) {
+            console.log('No access to group.');
+            return groupsApi.postGroupMembers(managerGroup.id, {
+                memberIds: [userMe.id],
+                version: managerGroup.version
+            })
+            .then(() => {
+                console.log('Added user to group.')
+                return nextPromise;
+            });
+        } else {
+            console.log('User has access to group.');
+            // Check and store a reference to the data table for listings
+            return nextPromise;
+        }        
     })
     .then((results) => {
         listingDataTable = results.entities.find(

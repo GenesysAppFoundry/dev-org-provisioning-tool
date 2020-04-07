@@ -4,7 +4,7 @@ export default {
 
         t.innerHTML =
         `
-            <div class="jumbotron pet-header">
+            <div class="jumbotron jumbotron-fluid pet-header">
                 <h1 class="display-4">` + text + `
         `;
 
