@@ -1,5 +1,5 @@
 // Toggle if running in localhost or GH pages
-let isTestEnvironment = true;
+let isTestEnvironment = false;
 
 console.log(`Running in ${isTestEnvironment ? 'TEST' : 'PROD'} environment`);
 
@@ -25,9 +25,13 @@ let prodClientIDs = {
     'usw2.pure.cloud': '0d09a06e-f09a-47ed-8556-080479596414' 
 }
 
+// Determine URL for different environments
+const root = isTestEnvironment ? 'http://localhost:8080' : 'https://genesysappfoundry.github.io/partner-enablement-tools';
+
 export default {
     clientIDs: isTestEnvironment ? testClientIDs : prodClientIDs,
     isTestEnvironment: isTestEnvironment,
     appName: appName,
-    prefix: prefix
+    prefix: prefix,
+    root: root
 }

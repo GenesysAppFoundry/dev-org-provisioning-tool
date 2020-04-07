@@ -41,7 +41,6 @@ $(document).ready(() => {
 
             // Eventlisteners for main buttons
             provisionTelephonyViews.btnEventListeners('btnProvisionTelephony');
-            provisionTelephonyViews.btnEventListeners('btnLearnMore');
             architectFlowViews.btnInitiateArchitectDownloadEventListener();
             developerRoleFlowViews.btnEventListener();
             loadModalView.setupLoadingEl();
