@@ -1,5 +1,5 @@
 // Toggle if running in localhost or GH pages
-let isTestEnvironment = false;
+let isTestEnvironment = true;
 
 console.log(`Running in ${isTestEnvironment ? 'TEST' : 'PROD'} environment`);
 
@@ -16,7 +16,7 @@ let testClientIDs = {
 }
 
 // Client IDs for production
-let prodClientIDs = {
+let prodClientIDs = {A
     'mypurecloud.com': 'e4163c90-2168-400a-9441-cb2c8ae7ccc2',
     'mypurecloud.ie': '377bf436-7787-4ed0-83d7-7ade528ff4ed',
     'mypurecloud.com.au': 'ae206cd0-a70e-481d-86f4-b1bfb61498de',
@@ -33,5 +33,6 @@ export default {
     isTestEnvironment: isTestEnvironment,
     appName: appName,
     prefix: prefix,
-    root: root
+    root: root,
+    landingAssetURL: `${root}/landing-page/assets`
 }
