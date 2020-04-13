@@ -119,13 +119,7 @@ export default {
             min: 1,
             message: "Select at least 1.",
             checkboxClass: 'cb-app-appType'
-        },
-        pricing: {
-            fieldId: "app-pricing",
-            type: "textarea", 
-            required: true,
-            message: "Required."
-        },
+        }
     },
     premiumAppDetails: {
         description: {

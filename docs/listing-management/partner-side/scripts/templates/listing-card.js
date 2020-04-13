@@ -1,47 +1,8 @@
 import config from '../../../config/config.js';
+import globalConfig from '../../../../config/global-config.js';
 import listingStatus from  '../../../config/listing-status.js';
 
 let t = document.createElement('template');
-t.innerHTML =
-`
-<div class="box">
-    <article class="media">
-    <div class="media-content">
-        <div class="content">
-        <p>
-            Name: <strong><span class="listing-name">
-                Listing Name</span></strong> 
-            <br>
-            Description: <span class="listing-description">
-                Description of Listing
-            </span>
-            <br>
-            <hr>
-            Status: <span class="listing-status">
-                ---
-            </span>
-            <br>
-            <span class="devfoundry-comment-notif">
-               ----- Genesys commented on this Listing -----
-            </span>
-        </p>
-        </div>
-        <div>
-            <a class="button is-dark btn-assign btn-view-listing">
-                View
-            </a>
-            <a class="button is-dark btn-assign btn-edit-listing">
-                Edit
-            </a>
-            <a class="button is-dark btn-assign btn-delete-listing">
-                Delete
-            </a>
-        </div>
-    </div>
-    </article>
-</div>
-`;
-
 t.innerHTML = 
 `
 <div class="card listing-card">
@@ -111,9 +72,8 @@ export default {
         btnEdit.style.display = 'none';
         btnView.style.display = 'none';
         
-        // FOR TESTING.
-        // TODO: Delete next line
-        btnDelete.style.display = '';
+        // Show delete always when testing
+        if(globalConfig.isTestEnvironment)  btnDelete.style.display = '';
 
         switch(status){
             case 'IN_PROGRESS':
