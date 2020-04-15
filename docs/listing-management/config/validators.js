@@ -139,9 +139,22 @@ export default {
         defaultApplicationURL: {
             fieldId: "p-app-defaultApplicationURL",
             type: "input",
-            format: 'website',
+            format: 'custom',
+            customValidation: (val) => {
+                console.log(val);
+
+                let pattern = new RegExp('^(https?:\\/\\/)?', 'i');
+                if(!pattern.test(val)) return false;
+
+                if(!(val.includes('{{pcLangTag}}') && 
+                        val.includes('{{pcEnvironment}}'))){
+                    return false;
+                }
+
+                return true;
+            },
             required: true,
-            message: "Required. Should be a valid URL"
+            message: "Required. Must contain {{pcLangTag}} and {{pcEnvironment}}."
         },
         uniquePermissions: {
             fieldId: "p-app-uniquePermissions",

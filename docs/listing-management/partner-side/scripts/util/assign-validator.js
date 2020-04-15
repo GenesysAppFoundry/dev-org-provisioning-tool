@@ -52,6 +52,8 @@ export default function(rule){
                                 '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
                         if(!pattern.test(this.value)) valid=false;
                         break;
+                    case 'custom':
+                        valid = rule.customValidation(this.value);
                     default: break;
                 }
             }
