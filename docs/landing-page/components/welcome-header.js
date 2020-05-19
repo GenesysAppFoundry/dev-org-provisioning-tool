@@ -7,7 +7,6 @@ t.innerHTML =
 
         <h1 class="display-4">Welcome to Partner Enablement Tools!</h1>
 
-        <p style="color: white;">What would you like to do?</p>
         <p>
           <p><button type="submit" id="btnUninstall" class="btn btn-primary btn-lg">Uninstall Apps</button></p>
         </p>
