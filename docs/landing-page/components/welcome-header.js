@@ -9,7 +9,7 @@ t.innerHTML =
 
         <p style="color: white;">What would you like to do?</p>
         <p>
-          <p><button type="submit" id="btnLearnMore" class="btn btn-primary btn-lg">Learn more »</button></p>
+          <p><button type="submit" id="btnUninstall" class="btn btn-primary btn-lg">Uninstall Apps</button></p>
         </p>
       </div>
     </div>

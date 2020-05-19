@@ -27,6 +27,7 @@ let prodClientIDs = {
 
 // Determine URL for different environments
 const root = isTestEnvironment ? 'http://localhost:8080' : 'https://genesysappfoundry.github.io/partner-enablement-tools';
+const uninstallURL = 'https://mypurecloud.github.io/purecloud-premium-app/wizard/uninstall.html'
 
 export default {
     clientIDs: isTestEnvironment ? testClientIDs : prodClientIDs,
@@ -34,5 +35,6 @@ export default {
     appName: appName,
     prefix: prefix,
     root: root,
-    landingAssetURL: `${root}/landing-page/assets`
+    landingAssetURL: `${root}/landing-page/assets`,
+    uninstallURL: uninstallURL
 }

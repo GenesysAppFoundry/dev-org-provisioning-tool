@@ -9,7 +9,6 @@ t.innerHTML =
         <ul class="sidebar-list">
           <li><a href="${config.root}/index.html"><img src="${config.landingAssetURL}/home.png" width="30px" height="30px">Home</a></li>
           <li><a href="${config.root}/org-provisioning/index.html"><img src="${config.landingAssetURL}/process.png" width="30px" height="30px">Dev Org Provisioning</a></li>
-          <li><a href="${config.root}/listing-management/partner-side/index.html"><img src="${config.landingAssetURL}/rocket.png" width="30px" height="30px">Listing Management</a></li>
         </ul>    
       </div>
       <div id="tool-contents" class="col-md-9">

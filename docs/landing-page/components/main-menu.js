@@ -12,12 +12,6 @@ t.innerHTML =
                     <span>Dev Org Provisioning</span>
                 </a>
             </li>
-            <li id="menu-listing-url">
-                <a href="${config.root}/listing-management/partner-side/index.html">
-                    <div class="menu-listing-url" style="width:90px; height:80px"></div>
-                    <span>Listing Management</span>
-                </a>
-            </li>
         </ul>
     </div>
 `;
