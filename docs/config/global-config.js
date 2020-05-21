@@ -17,7 +17,7 @@ let testClientIDs = {
 
 // Client IDs for production
 let prodClientIDs = {
-    'mypurecloud.com': 'e4163c90-2168-400a-9441-cb2c8ae7ccc2',
+    'mypurecloud.com': '8ab9ce91-98a5-4285-92c3-5aa249c66e30',
     'mypurecloud.ie': '377bf436-7787-4ed0-83d7-7ade528ff4ed',
     'mypurecloud.com.au': 'ae206cd0-a70e-481d-86f4-b1bfb61498de',
     'mypurecloud.jp': '265993a4-931a-44e5-a0b1-80519c3edb25',
