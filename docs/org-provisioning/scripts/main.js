@@ -17,7 +17,7 @@ let environment;
 environment = localStorage.getItem(globalConfig.appName + ':environment');
 if(!environment){
     const urlParams = new URLSearchParams(window.location.search);
-    let tempPcEnv = urlParams.get(globalConfig.environment); 
+    let tempPcEnv = urlParams.get(globalConfig.genesysCloudEnvironmentQueryParam); 
 
     if(tempPcEnv){
         environment = tempPcEnv;

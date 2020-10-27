@@ -11,7 +11,7 @@ let appName = 'premium-app-example';
 let prefix = 'DEV_ORG_PROVISIONING_TOOL_';
 
 // Client IDs when testing the app in localhost
-let testClientIDs = 'e7de8a75-62bb-43eb-9063-38509f8c21af';
+let testClientID = 'e7de8a75-62bb-43eb-9063-38509f8c21af';
 
 
 // Client IDs for production
