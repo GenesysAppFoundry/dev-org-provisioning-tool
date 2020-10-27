@@ -14,19 +14,20 @@ const client = platformClient.ApiClient.instance;
 let environment;
 
 //Authenticate
-environment = localStorage.getItem(globalConfig.appName + ':environment');
-if(!environment){
-    const urlParams = new URLSearchParams(window.location.search);
-    let tempPcEnv = urlParams.get(globalConfig.genesysCloudEnvironmentQueryParam); 
+const urlParams = new URLSearchParams(window.location.search);
+let tempPcEnv = urlParams.get(globalConfig.genesysCloudEnvironmentQueryParam); 
 
-    if(tempPcEnv){
-        environment = tempPcEnv;
-    } else {
+if(tempPcEnv){
+    environment = tempPcEnv;
+} else {
+    environment = localStorage.getItem(globalConfig.appName + ':environment');
+    if(!environment){
         environment = 'mypurecloud.com';
     }
-
-    localStorage.setItem(globalConfig.appName + ':environment', environment);
 }
+
+localStorage.setItem(globalConfig.appName + ':environment', environment);
+
 let clientID = globalConfig.clientID; 
 client.setEnvironment(environment);
 
