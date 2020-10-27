@@ -7,19 +7,27 @@ import header from '../../landing-page/components/header.js';
 import sidebar from '../../landing-page/components/sidebar.js';
 import content from './components/main.js';
 
-// const clientId = '83d37bf5-e050-47bf-9937-0314b259c9c4';
 const redirectUri = window.location.href;
 const platformClient = require('platformClient');
 const client = platformClient.ApiClient.instance;
 
-let environment = '';
+let environment;
 
 //Authenticate
 environment = localStorage.getItem(globalConfig.appName + ':environment');
 if(!environment){
-    throw new Error('Environment not found from localstorage.');
+    const urlParams = new URLSearchParams(window.location.search);
+    let tempPcEnv = urlParams.get(globalConfig.environment); 
+
+    if(tempPcEnv){
+        environment = tempPcEnv;
+    } else {
+        environment = 'mypurecloud.com';
+    }
+
+    localStorage.setItem(globalConfig.appName + ':environment', environment);
 }
-let clientId = globalConfig.clientIDs[environment]; 
+let clientID = globalConfig.clientID; 
 client.setEnvironment(environment);
 
 // Display elements
@@ -34,7 +42,7 @@ let toolContent = document.getElementById("tool-contents");
 toolContent.appendChild(newContentEl);
 
 $(document).ready(() => {
-    client.loginImplicitGrant(clientId, window.location.href.split('?')[0])
+    client.loginImplicitGrant(clientID, window.location.href.split('?')[0])
          .then(() => {
              console.log('Logged in');
             let token = client.authData.accessToken;
