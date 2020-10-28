@@ -1,5 +1,5 @@
 // Toggle if running in localhost or GH pages
-let isTestEnvironment = false;
+let isTestEnvironment = true;
 
 console.log(`Running in ${isTestEnvironment ? 'TEST' : 'PROD'} environment`);
 
@@ -12,7 +12,6 @@ let prefix = 'DEV_ORG_PROVISIONING_TOOL_';
 
 // Client IDs when testing the app in localhost
 let testClientID = 'e7de8a75-62bb-43eb-9063-38509f8c21af';
-
 
 // Client IDs for production
 let prodClientID =  '8ab9ce91-98a5-4285-92c3-5aa249c66e30';

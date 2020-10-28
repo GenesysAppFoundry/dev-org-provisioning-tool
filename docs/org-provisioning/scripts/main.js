@@ -30,6 +30,8 @@ localStorage.setItem(globalConfig.appName + ':environment', environment);
 
 let clientID = globalConfig.clientID; 
 client.setEnvironment(environment);
+client.setPersistSettings(true, globalConfig.appName);
+
 
 // Display elements
 const newHeaderEl = header.new("Dev Org Provisioning");
